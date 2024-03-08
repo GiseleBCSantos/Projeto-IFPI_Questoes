@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Area, Questao
+from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 
@@ -10,6 +11,6 @@ class AreaAdmin(admin.ModelAdmin):
 
 
 @admin.register(Questao)
-class QuestaoAdmin(admin.ModelAdmin):
+class QuestaoAdmin(ImportExportModelAdmin):
     list_display = ['ano', 'area']
     search_fields = ['ano', 'area']
