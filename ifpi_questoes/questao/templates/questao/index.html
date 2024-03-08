@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogadores</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Exibição de Questoes</h2>
+
+        <ul>
+            {% for questao in questoes %}
+            <li>{{questao.contexto}}</li>
+            <li>{{questao.pergunta}}</li>
+            <li>{{questao.letra_a}}</li>
+            <li>{{questao.letra_b}}</li>
+            <li>{{questao.letra_c}}</li>
+            <li>{{questao.letra_d}}</li>
+            <li>{{questao.letra_e}}</li>
+
+            <li>{{questao.answer}}</li>
+
+
+            <hr>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+</body>
+
+</html>
