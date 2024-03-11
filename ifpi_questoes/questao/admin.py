@@ -18,16 +18,17 @@ class AreaAdmin(admin.ModelAdmin):
 
 class CustomQuestaoAdmin(ImportMixin, admin.ModelAdmin):
     list_display = ['ano', 'area']
-    filter_display = [['ano', 'area']]
+    list_filter = ['ano', 'area']
     resource_classes = [QuestaoResource]
     import_form_class = CustomImportForm
-    confirm_form_class = CustomConfirmImportForm
     
     def get_confirm_form_initial(self, request, import_form):
         initial = super().get_confirm_form_initial(request, import_form)
         if import_form:
             initial['nome'] = import_form.cleaned_data['area']
             initial['ano'] = import_form.cleaned_data['ano']
+        print(initial)
         return initial
+
     
 admin.site.register(Questao, CustomQuestaoAdmin)
